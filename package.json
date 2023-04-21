@@ -1,0 +1,32 @@
+{
+  "name": "hub",
+  "version": "1.0.0",
+  "description": "Hub connector",
+  "main": "hub.js",
+  "scripts": {
+    "server": "node src/hub.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/megamapa/hub.git"
+  },
+  "keywords": [
+    "server",
+    "tracker"
+  ],
+  "author": "MegaMapa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/megamapa/hub/issues"
+  },
+  "homepage": "https://github.com/megamapa/hub#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "ioredis": "^5.3.1",
+    "mysql": "^2.18.1",
+    "os": "^0.1.2",
+    "socket.io": "^4.5.4"
+  }
+}
