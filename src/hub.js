@@ -82,13 +82,13 @@ const hub = new Redis({host:process.env.RD_host, port:process.env.RD_port, passw
 const pub = new Redis({host:process.env.RD_host, port:process.env.RD_port, password:process.env.RD_pass});
 
 // Updates server status as soon as it successfully connects
-hub.on('connect', function () { PublishUpdate(); GetDate().then(dte =>{ console.log('\033[30m'+dte+': \033[32mHUB connected.\033[0;0m');
-																		console.log('\033[30m'+dte+': \033[32mWaiting clients...\033[0;0m');}); });
+hub.on('connect', function () { PublishUpdate(); GetDate().then(dte =>{ console.log('\033[36m'+dte+': \033[32mHUB connected.\033[0;0m');
+																		console.log('\033[36m'+dte+': \033[32mWaiting clients...\033[0;0m');}); });
 
 // Subscribe on chanels
 hub.subscribe("san:server_update","san:monitor_update", (err, count) => {
   if (err) {
-	console.log('\033[30m'+dte+': \033[31mFailed to subscribe: '+ err.message +'\033[0m');
+	console.log('\033[36m'+dte+': \033[31mFailed to subscribe: '+ err.message +'\033[0m');
   } 
 });
 
@@ -143,8 +143,8 @@ GetDate().then(dte => {
 	// Save start datetime
 	starttime = Date.parse(dte);
 	// Show parameters and waiting clients
-	console.log('\033[30m'+dte+': \033[37m================================');
-	console.log('\033[30m'+dte+': \033[37m' + 'APP : ' + process.title + ' ('+Version+')');
-	console.log('\033[30m'+dte+': \033[37m' + 'IP/Port : ' + process.env.SrvIP + ':' + process.env.SrvPort);
-	console.log('\033[30m'+dte+': \033[37m' + 'CPUs: '+ OS.cpus().length);
-	console.log('\033[30m'+dte+': \033[37m================================');});
+	console.log('\033[36m'+dte+': \033[37m================================');
+	console.log('\033[36m'+dte+': \033[37mAPP : ' + process.title + ' ('+Version+')');
+	console.log('\033[36m'+dte+': \033[37mIP/Port : ' + process.env.SrvIP + ':' + process.env.SrvPort);
+	console.log('\033[36m'+dte+': \033[37mCPUs: '+ OS.cpus().length);
+	console.log('\033[36m'+dte+': \033[37m================================');});
